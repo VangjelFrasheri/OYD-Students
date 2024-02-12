@@ -32,19 +32,20 @@ public class Student {
 	private String belt;
 	
 	@Column(name = "is_active")
-	private boolean isActive;
+	private int isActive;
 	
 	public Student() {
 		
 	}
 	
-	public Student(String firstName, String lastName, String email, String phone, String belt, boolean isActive) {
+	public Student(String firstName, String lastName, String email, String phone, String belt, int isActive) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phone = phone;
 		this.belt = normalizeBeltRankName(belt);
+		System.out.println("the is active value is " + isActive); 
 		this.isActive = isActive;
 	}
 
@@ -85,12 +86,13 @@ public class Student {
 	public void setBelt(String belt) {
 		this.belt = belt;
 	}
-	public boolean isActive() {
+	public int getIsActive() {
 		return isActive;
 	}
-	public void setActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
+	
 	
 	public String normalizeBeltRankName(String belt) {
 		String reformattedBelt = belt.toUpperCase();
